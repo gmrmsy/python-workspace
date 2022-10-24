@@ -1,43 +1,53 @@
 import random
 
-dic = {'A':int(1), 'J':int(11), 'Q':int(12), 'K':int(13)} 
-
 pat = ['♥', '◆', '♣', '♠']
-num = [f'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', f'J', f'Q', f'K']
+num = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 player = []
-f1_draw = f'{random.choice(pat)}'+f'{random.choice(num)}'
-f2_draw = f'{random.choice(pat)}'+f'{random.choice(num)}'
-player.append(f'{f1_draw}')
-player.append(f'{f2_draw}')
+p1_draw = f'{random.choice(pat)}'+f'{random.choice(num)}'
+p2_draw = f'{random.choice(pat)}'+f'{random.choice(num)}'
+player.append(f'{p1_draw}')
+player.append(f'{p2_draw}')
 print(player)
 
-i1 = player[0][1]
-i2 = player[1][1]
+p1_n1 = player[0][1:]
+p1_n2 = player[1][1:]
 
-print(i1)
-print(i2)
+print(p1_n1)
+print(p1_n2)
 
 
-if i1 == 'A' or 'J' or 'Q' or 'K' :
-    if i1 == 'A' :
-        i1 = int(1)
-    if i1 == 'J' or 'Q' or 'K' :
-        i1 = int(10)
+if p1_n1 == 'A' :
+    p1_n1 = int(1)
+elif p1_n1 == 'J' :
+    p1_n1 = int(10)
+elif p1_n1 == 'Q' :
+    p1_n1 = int(10)
+elif p1_n1 == 'K' :
+    p1_n1 = int(10)    
+else :
+    pass
 
-if i2 == 'A' or 'J' or 'Q' or 'K' :
-    if i2 == 'A' :
-        i2 = int(1)
-    if i2 == 'J' or 'Q' or 'K' :
-        i2 = int(10)
+if p1_n2 == 'A' :
+    p1_n2 = int(1)
+elif p1_n2 == 'J' :
+    p1_n2 = int(10)
+elif p1_n2 == 'Q' :
+    p1_n2 = int(10)
+elif p1_n2 == 'K' :
+    p1_n2 = int(10)    
+else :
+    pass
 
-i1 = int(i1)
-i2 = int(i2)
+print(f'{p1_n1},{p1_n2}')
 
-print(f'{i1+i2}')
+p1_n1 = int(p1_n1)
+p1_n2 = int(p1_n2)
 
-# 숫자 두자리일 경우 (10) 어떻게 뽑을 지
-# 숫자 합을 어떻게 구현할지
+print(f'{p1_n1+p1_n2}')
+
+
+
 
 # print(int(f'{player[1][2]}') + int(f'player[2][2]}'))
 
