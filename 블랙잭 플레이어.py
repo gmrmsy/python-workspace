@@ -33,8 +33,69 @@ p1_n2 = player[1][1:]
 
 import random
 
+### 덱 생성 ###
 pat = ['♥', '◆', '♣', '♠']
 num = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+deck = []
+
+for i in pat :
+    for k in num :
+        deck.append(f'{i}'+f'{k}')
+############
+
+### 기본 카드 ###
+player = []
+for i in  range(1, 3, 1) :
+    pick = f'{random.choice(deck)}'
+    locals()['p1_p'+str(i)]= pick[:2]
+    locals()['p1_n'+str(i)] = pick[2:]
+    locals()['p1_c'+str(i)] = locals()['p1_p'+str(i)]+locals()['p1_n'+str(i)]
+    player.append(locals()['p1_c'+str(i)])
+    deck = list(set(deck)-set(player))
+
+print(p1_c1,p1_c2)
+print(len(player)) # 개수 세기
+
+##############
+
+### 카드 연산 ###
+al = ['A', 'J', 'Q', 'K']
+for i in range(1, int(len(player))+1, 1) :
+    if globals()['p1_n'+str(i)] == 'A' :
+        globals()['p1_n'+str(i)] = int(1)
+    elif globals()['p1_n'+str(i)] == 'J' :
+        globals()['p1_n'+str(i)] = int(10)
+    elif globals()['p1_n'+str(i)] == 'Q' :
+        globals()['p1_n'+str(i)] = int(10)
+    elif globals()['p1_n'+str(i)] == 'K' :
+        globals()['p1_n'+str(i)] = int(10)
+    else :
+        pass
+
+print(p1_n1,p1_n2)
+
+    
+
+#p1_p1 = f'{random.choice(deck)}'[:1]
+#p1_n1 = f'{random.choice(deck)}'[1:]
+#p1_c1 = p1_p1+p1_n1
+    
+'''
+test = []
+for i in  range(1, 10, 1) :
+    pick = f'{random.choice(deck)}'
+    locals()['p1_p'+str(i)]= pick[:2]
+    locals()['p1_n'+str(i)] = pick[2:]
+    locals()['p1_c'+str(i)] = locals()['p1_p'+str(i)]+locals()['p1_n'+str(i)]
+    test.append(locals()['p1_c'+str(i)])
+    deck = list(set(deck)-set(test))
+    #deck.remove(locals()['p'+str(i)+'_c'+str(i)])
+
+test.sort()
+print(test)
+
+
+
 
 p1_p1 = f'{random.choice(pat)}'
 p1_n1 = f'{random.choice(num)}'
@@ -143,4 +204,4 @@ while A_c != 2 :
     elif A_c == 2 :
         pass
     
-
+'''
