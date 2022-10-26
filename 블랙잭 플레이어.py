@@ -33,7 +33,7 @@ for i in  range(1, 3, 1) :
 ### 카드 연산 ###
 for i in range(1, len(player)+1, 1) :
     if globals()['p1_n'+str(i)] == 'A' :
-        globals()['p1_n'+str(i)] = 1
+        globals()['p1_n'+str(i)] = 11
     elif globals()['p1_n'+str(i)] == 'J' :
         globals()['p1_n'+str(i)] = 10
     elif globals()['p1_n'+str(i)] == 'Q' :
@@ -45,7 +45,7 @@ for i in range(1, len(player)+1, 1) :
 
 for i in range(1, len(cpu)+1, 1) :
     if globals()['c1_n'+str(i)] == 'A' :
-        globals()['c1_n'+str(i)] = 1
+        globals()['c1_n'+str(i)] = 11
     elif globals()['c1_n'+str(i)] == 'J' :
         globals()['c1_n'+str(i)] = 10
     elif globals()['c1_n'+str(i)] == 'Q' :
@@ -67,7 +67,8 @@ while p_money > 0 and c_money > 0 :
     print(f'Player : {p_money}$')
     print(f'C P U : {c_money}$')
     while b_money > 1000 :
-        b_money = int(input('베팅 금액을 입력하세요 : ')) 
+        b_money = int(input('베팅 금액을 입력하세요 : '))
+        print('')
         if b_money > 1000 :
             print('1000$ 이하로 베팅하세요')
 
@@ -104,38 +105,43 @@ while p_money > 0 and c_money > 0 :
     ### 알파벳 -> 숫자 ###
     for i in range(1, len(player)+1, 1) :
         if globals()['p1_n'+str(i)] == 'A' :
-            globals()['p1_n'+str(i)] = 1
+            globals()['p1_n'+str(i)] = '11'
         elif globals()['p1_n'+str(i)] == 'J' :
-            globals()['p1_n'+str(i)] = 10
+            globals()['p1_n'+str(i)] = '10'
         elif globals()['p1_n'+str(i)] == 'Q' :
-            globals()['p1_n'+str(i)] = 10
+            globals()['p1_n'+str(i)] = '10'
         elif globals()['p1_n'+str(i)] == 'K' :
-            globals()['p1_n'+str(i)] = 10
+            globals()['p1_n'+str(i)] = '10'
         else :
             pass
 
     for i in range(1, len(cpu)+1, 1) :
         if globals()['c1_n'+str(i)] == 'A' :
-            globals()['c1_n'+str(i)] = 1
+            globals()['c1_n'+str(i)] = '11'
         elif globals()['c1_n'+str(i)] == 'J' :
-            globals()['c1_n'+str(i)] = 10
+            globals()['c1_n'+str(i)] = '10'
         elif globals()['c1_n'+str(i)] == 'Q' :
-            globals()['c1_n'+str(i)] = 10
+            globals()['c1_n'+str(i)] = '10'
         elif globals()['c1_n'+str(i)] == 'K' :
-            globals()['c1_n'+str(i)] = 10
+            globals()['c1_n'+str(i)] = '10'
         else :
             pass
     ####################
 
+    ### 숫자합, cpu_act여부, 게임유지여부, act선택 ###
     p_over = int(p1_n1) + int(p1_n2)
     c_over = int(c1_n1) + int(c1_n2)
     c_possible = 1
     g_switch = 0
     act = 0
+    #######################################
     
     while g_switch != 1 :
         print(player)
         print('총 합 :',p_over)
+        if p_over > 21 :
+            print('player BUST!')
+            break            
         print('1. Hit   2. Stand')
         act = int(input('행동을 선택하세요 : '))
         print('')
@@ -149,25 +155,31 @@ while p_money > 0 and c_money > 0 :
 
             for i in range(1, len(player)+1, 1) :
                 if globals()['p1_n'+str(i)] == 'A' :
-                    globals()['p1_n'+str(i)] = 1
+                    globals()['p1_n'+str(i)] = '11'
                 elif globals()['p1_n'+str(i)] == 'J' :
-                    globals()['p1_n'+str(i)] = 10
+                    globals()['p1_n'+str(i)] = '10'
                 elif globals()['p1_n'+str(i)] == 'Q' :
-                    globals()['p1_n'+str(i)] = 10
+                    globals()['p1_n'+str(i)] = '10'
                 elif globals()['p1_n'+str(i)] == 'K' :
-                    globals()['p1_n'+str(i)] = 10
+                    globals()['p1_n'+str(i)] = '10'
                 else :
                     pass
             p_over += int(globals()['p1_n'+str(len(player))])
 
             if p_over > 21 :
-                print(f'\n{player}')
-                print('총 합 :',p_over)
-                print('Player BUST!')
-                p_money -= b_money
-                c_money += b_money
-                g_switch = 1
-            print('\n')
+                for i in range(1, len(player)+1, 1) :
+                    if  globals()['p1_n'+str(i)] == '11' :
+                        p_over - 10
+                if p_over > 21 :
+                    print(f'\n{player}')
+                    print('총 합 :',p_over)
+                    print('Player BUST!')
+                    p_money -= b_money
+                    c_money += b_money
+                    g_switch = 1
+                elif p_over < 22 :
+                    pass
+                print('\n')
 
             if c_possible == 1 :
                 if c_over < 17 :
@@ -179,28 +191,31 @@ while p_money > 0 and c_money > 0 :
                     deck = list(set(deck)-set(cpu))
                     
                     for i in range(1, len(cpu)+1, 1) :
-                        if globals()['p1_n'+str(i)] == 'A' :
-                            globals()['p1_n'+str(i)] = 1
-                        elif globals()['p1_n'+str(i)] == 'J' :
-                            globals()['p1_n'+str(i)] = 10
-                        elif globals()['p1_n'+str(i)] == 'Q' :
-                            globals()['p1_n'+str(i)] = 10
-                        elif globals()['p1_n'+str(i)] == 'K' :
-                            globals()['p1_n'+str(i)] = 10
+                        if globals()['c1_n'+str(i)] == 'A' :
+                            globals()['c1_n'+str(i)] = '11'
+                        elif globals()['c1_n'+str(i)] == 'J' :
+                            globals()['c1_n'+str(i)] = '10'
+                        elif globals()['c1_n'+str(i)] == 'Q' :
+                            globals()['c1_n'+str(i)] = '10'
+                        elif globals()['c1_n'+str(i)] == 'K' :
+                            globals()['c1_n'+str(i)] = '10'
                         else :
                             pass
-                    c_over += int(globals()['p1_n'+str(len(cpu))])
+                    c_over += int(globals()['c1_n'+str(len(cpu))])
 
                 elif c_over == 21 :
                     c_possible = 2
 
                 elif c_over > 21 :
-                    print(f'\n{player}')
-                    print('총 합 :',c_over)
-                    print('CPU BUST!')
-                    p_money += b_money
-                    c_money -= b_money
-                    g_switch = 1
+                    for i in range(1, len(cpu)+1, 1) :
+                        if globals()['c1_n'+str(i)] == '11' :
+                            c_over - 10
+                        if c_over < 22 :
+                            pass
+                        elif c_over > 21 :
+                            p_money += b_money
+                            c_money -= b_money
+                            g_switch = 1
             
                 elif c_over > 16 :
                     stay = []
@@ -214,17 +229,17 @@ while p_money > 0 and c_money > 0 :
                         cpu.append(globals()['c1_c'+ str((len(cpu))+1)])
                         deck = list(set(deck)-set(cpu))
                         for i in range(1, len(cpu)+1, 1) :
-                            if globals()['p1_n'+str(i)] == 'A' :
-                                globals()['p1_n'+str(i)] = 1
-                            elif globals()['p1_n'+str(i)] == 'J' :
-                                globals()['p1_n'+str(i)] = 10
-                            elif globals()['p1_n'+str(i)] == 'Q' :
-                                globals()['p1_n'+str(i)] = 10
-                            elif globals()['p1_n'+str(i)] == 'K' :
-                                globals()['p1_n'+str(i)] = 10
+                            if globals()['c1_n'+str(i)] == 'A' :
+                                globals()['c1_n'+str(i)] = '11'
+                            elif globals()['c1_n'+str(i)] == 'J' :
+                                globals()['c1_n'+str(i)] = '10'
+                            elif globals()['c1_n'+str(i)] == 'Q' :
+                                globals()['c1_n'+str(i)] = '10'
+                            elif globals()['c1_n'+str(i)] == 'K' :
+                                globals()['c1_n'+str(i)] = '10'
                             else :
                                 pass
-                        c_over += int(globals()['p1_n'+str(len(cpu))])
+                        c_over += int(globals()['c1_n'+str(len(cpu))])
                         c_possible = 1
                     elif stay_num > 3 :
                         c_possible = 2
@@ -241,23 +256,26 @@ while p_money > 0 and c_money > 0 :
                     
                     for i in range(1, len(cpu)+1, 1) :
                         if globals()['c1_n'+str(i)] == 'A' :
-                            globals()['c1_n'+str(i)] = 1
+                            globals()['c1_n'+str(i)] = '11'
                         elif globals()['c1_n'+str(i)] == 'J' :
-                            globals()['c1_n'+str(i)] = 10
+                            globals()['c1_n'+str(i)] = '10'
                         elif globals()['c1_n'+str(i)] == 'Q' :
-                            globals()['c1_n'+str(i)] = 10
+                            globals()['c1_n'+str(i)] = '10'
                         elif globals()['c1_n'+str(i)] == 'K' :
-                            globals()['c1_n'+str(i)] = 10
+                            globals()['c1_n'+str(i)] = '10'
                         else :
                             pass
                     c_over += int(globals()['c1_n'+str(len(cpu))])
 
                 elif c_over > 21 :
-                    print(f'\n{cpu}')
-                    print('총 합 :',c_over)
-                    print('CPU BUST!')
-                    g_switch = 1                   
-                    c_possible = 2
+                    for i in range(1, len(cpu)+1, 1) :
+                        if globals()['c1_n'+str(i)] == '11' :
+                            c_over - 10
+                    if c_over < 22 :
+                        pass
+                    elif c_over > 21 :
+                        g_switch = 1                   
+                        c_possible = 2
 
                 elif c_over == 21 :
                     c_possible = 2
@@ -274,17 +292,17 @@ while p_money > 0 and c_money > 0 :
                         cpu.append(globals()['c1_c'+ str((len(cpu))+1)])
                         deck = list(set(deck)-set(cpu))
                         for i in range(1, len(cpu)+1, 1) :
-                            if globals()['p1_n'+str(i)] == 'A' :
-                                globals()['p1_n'+str(i)] = 1
-                            elif globals()['p1_n'+str(i)] == 'J' :
-                                globals()['p1_n'+str(i)] = 10
-                            elif globals()['p1_n'+str(i)] == 'Q' :
-                                globals()['p1_n'+str(i)] = 10
-                            elif globals()['p1_n'+str(i)] == 'K' :
-                                globals()['p1_n'+str(i)] = 10
+                            if globals()['c1_n'+str(i)] == 'A' :
+                                globals()['c1_n'+str(i)] = '11'
+                            elif globals()['c1_n'+str(i)] == 'J' :
+                                globals()['c1_n'+str(i)] = '10'
+                            elif globals()['c1_n'+str(i)] == 'Q' :
+                                globals()['c1_n'+str(i)] = '10'
+                            elif globals()['c1_n'+str(i)] == 'K' :
+                                globals()['c1_n'+str(i)] = '10'
                             else :
                                 pass
-                        c_over += int(globals()['p1_n'+str(len(cpu))])
+                        c_over += int(globals()['c1_n'+str(len(cpu))])
                         c_possible = 1
                     elif stay_num > 3 :
                         c_possible = 2
@@ -297,7 +315,7 @@ while p_money > 0 and c_money > 0 :
                     print(f'Player : {p_over}')
                     print(f'\n{cpu}')
                     print(f'C P U : {c_over}')
-                    print('CPU 승리')
+                    print('\nCPU 승리')
                     print('')
                     p_money -= b_money
                     c_money += b_money                    
@@ -307,7 +325,7 @@ while p_money > 0 and c_money > 0 :
                     print(f'Player : {p_over}')
                     print(f'\n{cpu}')
                     print(f'C P U : {c_over}')
-                    print('Player 승리')
+                    print('\nPlayer 승리')
                     print('')
                     p_money += b_money
                     c_money -= b_money                    
@@ -319,7 +337,8 @@ while p_money > 0 and c_money > 0 :
                     print(f'Player : {p_over}')
                     print(f'\n{cpu}')
                     print(f'C P U : {c_over}')
-                    print('Player 승리')
+                    print('C P U BUST!')
+                    print('\nPlayer 승리')
                     p_money += b_money
                     c_money -= b_money                    
                     print('')
@@ -329,7 +348,7 @@ while p_money > 0 and c_money > 0 :
                     print(f'Player : {p_over}')
                     print(f'\n{cpu}')
                     print(f'C P U : {c_over}')
-                    print('CPU 승리')
+                    print('\nCPU 승리')
                     print('')
                     p_money -= b_money
                     c_money += b_money                    
@@ -340,7 +359,7 @@ while p_money > 0 and c_money > 0 :
                 print(f'Player : {p_over}')
                 print(f'\n{cpu}')
                 print(f'C P U : {c_over}')                
-                print('Draw')
+                print('\nDraw')
                 g_switch = 1
                 
         elif act != 1 and act != 2 :
