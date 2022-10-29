@@ -3,7 +3,7 @@ from collections import Counter
 
 ### 덱 생성 ###
 pat = ['◆', '♠', '♣', '♥']
-num = ['10', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'J', 'K', 'Q']
+num = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 deck = []
 
 for i in pat :
@@ -32,3 +32,29 @@ p_num_count = Counter(p_num)
 
 print(dict(p_pat_count))
 print(dict(p_num_count))
+
+asdf = {}
+rank_num = {}
+append_num = []
+for i in range(2,15) :
+    append_num.append(i)
+
+for i in range(13) :
+    rank_num[num[i]] = append_num[i]
+
+print(rank_num)
+
+if pair > 0 :
+    if pair == 2 :
+        if rank_num[triple_num[0]] > rank_num[triple_num[1]] :
+            print(f'{triple_num[0]} 투페어')
+        if rank_num[triple_num[0]] < rank_num[triple_num[1]] :
+            print(f'{triple_num[1]} 투페어')
+    if pair == 1 :
+        print 
+
+
+        if pair_num[0] > pair_num[1] :
+            print(f'{pair_num[0]} 투페어')
+        if triple_num[0] < triple_num[1] :
+            print(f'{pair_num[1]} 투페어') 
