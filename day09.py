@@ -27,7 +27,7 @@ result = ls.count(3) # 해당 데이터 갯수
 print(result)
 
 
-ls.insert(2,100)
+ls.insert(2,100) # 2번째 순서에 100 넣기
 print(ls)
 
 ls.remove(100) # list 명령어O, 데이터 삭제
