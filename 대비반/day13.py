@@ -40,9 +40,8 @@ print(year)
 del(sp_li[4])
 del(sp_li[2])
 #[안녕하세요,오늘,2020년2월23일,날씨는,춥다]
-sp_li.insert(2,
-        year[0]+"년"+year[1]+"월"+year[2]+"일")  # 리스트 자료형 옵션
-                                                                    # insert(들어갈 순서, 들어갈 내용)
+sp_li.insert(2,year[0]+"년"+year[1]+"월"+year[2]+"일")   # 리스트 자료형 옵션
+                                                        # insert(들어갈 순서, 들어갈 내용)
 print( sp_li )
 
 st = ""

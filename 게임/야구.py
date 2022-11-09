@@ -4,7 +4,7 @@ import time
 
 num_m = 940124
 
-while num_m != 4 :
+while num_m != 3 :
     print('□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□')
     print('□□□□□□■□□□■■■■□□■■■■□■□■□□■■□□■□')
     print('□□■■□□■■□□□□□■□□□□□■□■□■□■□□■□■□')
@@ -17,8 +17,7 @@ while num_m != 4 :
     print('\n')
     print('1. 게임선택')
     print('2. 게임설명')
-    print('3. 제작자')
-    print('4. 게임종료')
+    print('3. 게임종료')
     num_m = int(input('메뉴선택 : '))
     
 
@@ -450,9 +449,3 @@ while num_m != 4 :
         print('\n')
         print('\n')
 
-    if num_m == 3 :
-        print('\n')
-        print('\n')
-        print('수업하다 갑자기 게임에 꽂힌 이효재 제작')
-        print('\n')
-        print('\n')
