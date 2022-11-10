@@ -12,7 +12,7 @@ for i in pat :
 ############
 
 ### 기본 카드 ###
-player = []
+ply = []
 ply_pat = []
 ply_num = []
 for i in  range(2) :
@@ -22,8 +22,8 @@ for i in  range(2) :
     locals()['p1_c'+str(i)] = locals()['p1_p'+str(i)]+locals()['p1_n'+str(i)]
     ply_pat.append(locals()['p1_p'+str(i)])
     ply_num.append(locals()['p1_n'+str(i)])    
-    player.append(locals()['p1_c'+str(i)])
-    deck = list(set(deck)-set(player))
+    ply.append(locals()['p1_c'+str(i)])
+    deck = list(set(deck)-set(ply))
 
 cpu = []
 cpu_pat = []
@@ -42,7 +42,7 @@ for i in  range(2) :
 ### Community Card ###
 
 # Flop 
-comty = []
+com = []
 com_pat = []
 com_num = []
 for i in  range(3) :
@@ -52,8 +52,8 @@ for i in  range(3) :
     locals()['t1_c'+str(i)] = locals()['t1_p'+str(i)]+locals()['t1_n'+str(i)]
     com_pat.append(locals()['t1_p'+str(i)])
     com_num.append(locals()['t1_n'+str(i)])    
-    comty.append(locals()['t1_c'+str(i)])
-    deck = list(set(deck)-set(comty))
+    com.append(locals()['t1_c'+str(i)])
+    deck = list(set(deck)-set(com))
 
 # Turn
 pick = f'{random.choice(deck)}'
@@ -62,8 +62,8 @@ t1_n4 = pick[1:]
 t1_c4 = t1_p4+t1_n4
 com_pat.append(t1_p4)
 com_num.append(t1_n4)
-comty.append(t1_c4)
-deck = list(set(deck)-set(comty))
+com.append(t1_c4)
+deck = list(set(deck)-set(com))
 
 # River
 pick = f'{random.choice(deck)}'
@@ -72,8 +72,8 @@ t1_n5 = pick[1:]
 t1_c5 = t1_p5+t1_n5
 com_pat.append(t1_p5)
 com_num.append(t1_n5)
-comty.append(t1_c5)
-deck = list(set(deck)-set(comty))
+com.append(t1_c5)
+deck = list(set(deck)-set(com))
 
 ##### 족보 밑작업 #####
 
@@ -100,8 +100,8 @@ for i in range(13) :
 # 최종 숫자, 최종 카드
 ply_result_num = ply_num+com_num
 cpu_result_num = cpu_num+com_num
-ply_com = player + comty
-cpu_com = cpu + comty
+ply_com = ply + com
+cpu_com = cpu + com
 
 
 # 숫자 정렬
@@ -126,10 +126,10 @@ for i in sort_cpu_result_num :
 
 
 print('공유카드')
-print(comty)
+print(com)
 print('')
 print('플레이어 카드')
-print(player)
+print(ply)
 print('')
 print('CPU카드')
 print(cpu)

@@ -1,4 +1,8 @@
 import random
+print('□'*30)
+print('{:□^30}'.format(' BLACK JACK '))
+print('□'*30)
+print()
 
 ### 덱 생성 ###
 pat = ['♥', '◆', '♣', '♠']
@@ -127,7 +131,7 @@ while p_money > 0 and c_money > 0 :
         else :
             pass
     ####################
-
+ 
     ### 숫자합, cpu_act여부, 게임유지여부, act선택 ###
     p_over = int(p1_n1) + int(p1_n2)
     c_over = int(c1_n1) + int(c1_n2)
@@ -135,13 +139,12 @@ while p_money > 0 and c_money > 0 :
     g_switch = 0
     act = 0
     #######################################
-    
+
     while g_switch != 1 :
-        print(player)
-        print('총 합 :',p_over)
         if p_over > 21 :
-            print('player BUST!')
-            break            
+            p_over -= 10
+        print(player)
+        print('총 합 :',p_over)         
         print('1. Hit   2. Stand')
         act = int(input('행동을 선택하세요 : '))
         print('')
@@ -169,7 +172,7 @@ while p_money > 0 and c_money > 0 :
             if p_over > 21 :
                 for i in range(1, len(player)+1, 1) :
                     if  globals()['p1_n'+str(i)] == '11' :
-                        p_over - 10
+                        p_over -= 10
                 if p_over > 21 :
                     print(f'\n{player}')
                     print('총 합 :',p_over)
