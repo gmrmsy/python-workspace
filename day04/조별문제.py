@@ -28,7 +28,7 @@ for i in range(n+1):
             if '3' in str(i) + str(j) + str(k):
                 count +=1
 print("{}시59분59초까지 3이 하나라도 포함된 경우의 개수는 {}개 입니다.".format(n,count))
-
+'''
 
 num = int(input('피라미드의 높이>>>>> '))
 
@@ -42,6 +42,20 @@ for i in range(1,num+1) :
     print()
 
 
+num = int(input('피라미드의 높이>>>>> '))
+
+for i in range(1,num+1) :
+    for j in range(num-i) :
+        print('□',end='')
+    for k in range(2*i-1) :
+        print('■',end='')
+    for l in range(num-i) :
+        print('□',end='')
+    print()
+
+   
+
+'''
 N = int(input('숫자를 입력하세요>>> '))
 count = 0
 

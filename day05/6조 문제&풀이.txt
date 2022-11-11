@@ -1,0 +1,136 @@
+<<<<< 문제1 >>>>>
+
+네가지 문양 (♥ ◆ ♣ ♠)과 13가지 숫자 (2~10,A,J,Q,K)가
+짝을 짓는 트럼프카드 52장 한 세트를 만드시오
+
+
+
+<<<<< 문제2 >>>>>
+
+입력한 숫자의 길이와 입력한 숫자의 합을 구하세요
+
+
+
+<<<<< 문제3 >>>>>
+
+1. 사용자에게 정수형 리스트 입력받고, 
+3개의 선택지 중 하나를 입력받고 해당 선택지의 결과를 출력하는 프로그램을 만든다. 
+각각의 선택지는 
+1 = 값의 순서를 반대로 바꾸기(reverse), 
+2 = sort(오름차순으로 바꾸기), 
+3 = 종료
+(hint : reverse와 sort 사용)
+
+
+
+<<<<< 문제4 >>>>>
+
+2. 1 ~ 50 까지 정수형 숫자가 들어있는 리스트 ls1을 만들고
+ls1의 인덱싱을 활용하여 '1, 11, 21, 31, 41'가 들어있는 리스트 ls2를 출력하시오
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================
+
+
+
+
+
+<<<<< 정답1 >>>>>
+
+pat = ['♥', '◆', '♣', '♠']
+num = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+deck = []
+
+for i in pat :
+    for k in num :
+        deck.append(f'{i}'+f'{k}')
+
+print(deck)
+
+
+
+<<<<< 정답2 >>>>>
+
+a = input("입력: ")
+arr = list(a)
+print(arr)  
+int_arr = map(int,arr) 
+print(int_arr)     
+int_arr=list(map(int,arr)) 
+print(int_arr)
+answer = sum(int_arr)
+print(answer)
+
+
+
+<<<<< 정답3 >>>>>
+
+import os
+
+print("==리스트 입력 후 프로그램이 재생됩니다!==")
+print("* 원소는 정수형만 가능")
+print("* E 입력시 리스트 입력 종료")
+print()
+arr = []
+while True:
+    ele = input("리스트 원소 입력 : ")
+    if ele == 'E':
+        break
+    arr.append(int(ele))
+    
+os.system("cls")
+
+
+while True:
+    print("===리스트 순서 바꾸기 프로그램===")
+    print("1번 선택 : 값의 순서를 반대로 바꾸기")
+    print("2번 선택 : 오름차순으로 바꾸기")
+    print("3번 선택 : 종료")
+    print(f"당신이 입력한 리스트는 {arr}입니다.")
+    choice = int(input("1 ~ 3번 선택 : "))
+
+    if choice == 1:
+        arr_1 = arr[:]
+        arr_1.reverse()
+        print(f"결과는 {arr_1} 입니다.\n")
+    elif choice == 2:
+        arr_2 = arr[:]
+        arr_2.sort()
+        print(f"결과는 {arr_2} 입니다.\n")
+    else:
+        print("프로그램을 종료합니다.")
+        break
+
+
+
+<<<<< 문제4 >>>>>
+
+ls1 = []
+for i in range(1, 51):
+    ls1.append(i)
+print(ls1)
+
+ls2 = []
+for i in range(0, 42, 10):
+    ls2.append(ls1[i])
+print(ls2)

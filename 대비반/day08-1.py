@@ -1,6 +1,6 @@
 n = 100
 print( n )
-print( id(n)) # 정보값 출력 (끝 3자리)
+print( id(n)) # 정보값 출력
 print('')
 
 ls = [10, 20, 30]

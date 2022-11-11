@@ -1,3 +1,4 @@
+'''
 # 1번
 st = 'It is a fun python class'
 a = 0
@@ -73,3 +74,11 @@ while True :
         break
 print('모든 좌석이 예약되었습니다. 예약을 종료합니다.')
 print()
+'''
+
+
+
+import sys
+
+print(sys.path)
+print(sys.modules)
