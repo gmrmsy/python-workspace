@@ -1,0 +1,217 @@
+<<<<< 문제1 >>>>>
+딕셔너리를 사용해서 친구들의 이름과 전화번호를 저장해보자. 
+사용자로부터 친구들의 이름과 전화번호를 입력받고 딕셔너리에 저장한다.
+이름을 입력하지 않고 엔터키를 치면 검색모드가 된다. 
+검색모드에서는 친구들의 이름으로 전화번호를 검색할 수 있도록 한다.
+
+출력 예시)
+(입력모드)이름을 입력하시오: 김개똥
+전화번호를 입력하시오: 1111-2222
+(입력모드)이름을 입력하시오: 홍길동
+전화번호를 입력하시오: 5555-5555
+(입력모드)이름을 입력하시오: 
+(검색모드)이름을 입력하시오: 김개똥
+김개똥 의 전화번호는 1111-2222 입니다
+(검색모드)이름을 입력하시오: 홍길동
+홍길동 의 전화번호는 5555-5555 입니다
+
+
+
+<<<<< 문제2 >>>>>
+우리는 사람의 덩치를 키와 몸무게, 이 두 개의 값으로 표현하여 그 등수를 매겨보려고 한다.
+
+어떤 사람의 몸무게가 x kg이고 키가 y cm라면 이 사람의 덩치는 (x, y)로 표시된다.
+두 사람 A 와 B의 덩치가 각각 (x, y), (p, q)라고 할 때 x > p 그리고 y > q 이라면
+즉, 키와 몸무게가 모두 크다면 우리는 A의 덩치가 B의 덩치보다 "더 크다"고 말한다.
+
+그 외에 몸무게와 키중 한 가지만 크거나, 모두 작을 경우는 크다고 할 수 없다
+
+N명의 집단에서 각 사람의 덩치 등수는 자신보다 더 "큰 덩치"의 사람의 수로 정해진다.
+만일 자신보다 더 큰 덩치의 사람이 k명이라면 그 사람의 덩치 등수는 k+1이 된다.
+같은 덩치 등수를 가진 사람은 여러 명도 가능하다. 
+아래는 5명으로 이루어진 집단에서 각 사람의 덩치와 그 등수가 표시된 표이다.
+
+이름	(몸무게, 키)	덩치 등수
+A	(55, 185)		2
+B	(58, 183)		2
+C	(88, 186)		1
+D	(60, 175)		2
+E	(46, 155)		5
+
+학생 N명의 몸무게와 키가 담긴 입력을 읽어서 각 사람의 덩치 등수를 계산하여 출력해야 한다
+
+
+
+<<<<< 문제3 >>>>>
+ 동문 커뮤니티 운영을 맡을 중요한 관리자를 뽑으려 한다.
+
+각 동아리에서는 동아리원 N명을 선출하여, 그 중 백준 온라인 저지 알고리즘 문제를 푼 개수가 가장 많은 사람을 그 동아리의 관리자 후보로 선출한다.
+각 동아리에서 뽑힌 후보들 중 가장 문제를 많이 푼 후보가 최종적으로 관리자가 된다. 
+
+PROBRAIN, GROW, ARGOS, ADMIN, ANT, MOTION, SPG, COMON, ALMIGHTY 이렇게 총 8개의 동아리가 있고,
+ 각 동아리에는 최소 N명의 동아리원이 있을 때, 동문 커뮤니티 관리자는 어느 동아리에서 선출 될 것인지 알아내어라.
+
+입력
+첫 번째 줄은 동아리원의 수 N이 주어진다. (1 ≤ N ≤ 100)
+
+두 번째 줄부터 마지막 줄 까지 각 동아리별로 N명의 동아리원들의 백준 온라인 저지 알고리즘 문제를 푼 개수가 순서대로 주어진다.
+
+각 동아리에서 선출된 후보들은 문제 푼 개수가 서로 다르다. 
+
+각 행은 정확히 다음과 같은 동아리명의 순서로 주어진다.
+
+PROBRAIN, GROW, ARGOS, ADMIN, ANT, MOTION, SPG, COMON, ALMIGHTY
+
+각 동아리원들이 문제를 푼 개수를 K라 할 때 (1 ≤ K ≤ 1000) 이다.
+
+
+
+<<<<< 풀이4 >>>>>
+# Q. 회사 쇼핑몰 고객의 아이디에 부여된 마일리지 포인트를 딕셔너리에 
+# 저장하여 관리하고자 한다.
+# 다음의 문자열(st)은 고객의 아이디와 마일리지 포인트를 의미한다.
+
+st = '''
+kim99 12000
+lee66 11000
+han55 3000
+hong77 5000
+hwang33 18000
+'''
+# ★ 본인의 실력에 따라 아래의 문제 중 하나 풀기 ★
+# 1. 난이도 하) st의 정보를 딕셔너리(아이디 : 마일리지 포인트) 형태로 
+# shop 변수에 저장하고 이를 출력하라.
+# 2. 난이도 중하) 1. 수행 후 새로운 회원 (아이디 'jang88'과 마일리지 7000)을 
+# 추가하고 딕셔너리 함수를 활용하여 shop의 모든 key : value 를 출력하라.
+# 3. 난이도 상) 2. 수행 후 6명의 회원 중 가장 높은 마일리지를 가진 회원과 
+# 그 마일리지를 출력하라
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<< 풀이1 >>>>>
+contacts = {}
+while True:
+    name= input("(입력모드)이름을 입력하시오: ")
+    if not name:
+        break
+    tel = input(("전화번호를 입력하시오: "))
+    contacts[name] = tel
+while True:
+    name2 = input("(검색모드)이름을 입력하시오: ")
+    print(name2,"의 전화번호는",contacts[name2],"입니다")
+    if not name2:
+        break; 
+
+
+
+<<<<< 풀이2 >>>>>
+n = int(input('인원수를 입력하세요 : '))
+n_ = 0
+big ={}
+while True :
+
+    name = input(f'{n_+1}번 째 학생이름>>> ')
+    weight = int(input(f'{n_+1}번 째 학생몸무게>>> '))
+    height = int(input(f'{n_+1}번 째 학생키>>> '))
+    big[name] = {'몸무게':weight, '키':height, '등수':1}
+    n_ += 1
+    if n_ == n :
+        break
+
+
+for i in big :
+    for k in big :
+        if i == k :
+            pass
+        elif big[i]['몸무게'] > big[k]['몸무게'] and big[i]['키'] > big[k]['키'] :
+            pass
+        elif big[i]['몸무게'] > big[k]['몸무게'] or big[i]['키'] > big[k]['키'] :
+            pass
+        elif big[i]['몸무게'] < big[k]['몸무게'] and big[i]['키'] < big[k]['키'] :
+            big[i]['등수'] += 1
+
+
+print('이름\t몸무게\t키\t등수')
+for i in big :
+    print(f'{i}',end='\t')
+    for k in big[i] :
+        print(f'{big[i][k]}',end='\t')
+    print()
+
+
+
+<<<<< 풀이3 >>>>>
+ dong = {"probrain":0,"grow":0,"argos":0,"admin":0,"ant":0,"motion":0,"spg":0,"comon":0,"almoghty":0}    #8
+ for i in range(8):
+     l = 0
+     s = list(map(int,input("입력:").split()))
+     for j in s:
+         if j>l:
+             l=j
+     if l>=0:
+         dong[i]=l
+ max_key = max(dong,key = dong.get)
+ print(list(dong.keys())[max_key])
+
+ num = {1:"일",2:"이",3:"삼"}
+ print(num.keys())
+ print(num.values())
+ print(type(num.keys()))
+ # print(num.keys()[0])
+ li = list(num.keys())
+ print(li,li[0])
+
+
+
+<<<<< 풀이4 >>>>>
+1.
+st1 = st.split()
+
+shop = {}
+for i in range(len(st1)):
+    if i % 2 == 1:
+        shop[st1[i-1]] = st1[i]
+print(shop)
+
+# 2.
+st1 = st.split()
+
+shop = {}
+for i in range(len(st1)):
+    if i % 2 == 1:
+        shop[st1[i-1]] = st1[i]
+
+shop['jang88'] = 7000
+
+print(shop.items())
+
+# 3.
+st1 = st.split()
+
+shop = {}
+for i in range(len(st1)):
+    if i % 2 == 1:
+        shop[st1[i-1]] = st1[i]
+
+shop['jang88'] = 7000
+
+
+max = 0
+for i in shop:
+    if int(shop[i]) >= max:
+        max = int(shop[i])
+
+
+for k in shop:
+    if int(shop[k]) == max:
+        print(k, ':', shop[k])
